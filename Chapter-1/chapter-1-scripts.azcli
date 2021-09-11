@@ -1,0 +1,4 @@
+az bicep --help
+
+az bicep build -f .\Chapter-1\simplestorage.bicep
+
