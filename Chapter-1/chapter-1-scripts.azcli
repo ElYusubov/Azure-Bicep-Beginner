@@ -2,3 +2,5 @@ az bicep --help
 
 az bicep build -f .\Chapter-1\simplestorage.bicep
 
+az bicep build -f .\Chapter-1\simplestorage.bicep --outfile .\Chapter-1\new-stg.json
+
