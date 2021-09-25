@@ -4,3 +4,5 @@ az account show --query name
 
 # List all RG names
 az group list -o table
+
+az bicep decompile -f .\Chapter-4\bicep-storage-starter.json
