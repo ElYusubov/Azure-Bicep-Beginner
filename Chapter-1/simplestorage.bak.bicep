@@ -1,11 +1,13 @@
-resource globalazuredemostg21 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+// simplestorage.bicep
+
+resource simpleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   name: 'globalazuredemostg21'
   location: 'eastus2'
-  kind: 'StorageV2'
+  kind: 'StorageV2' 
   sku: {
     name: 'Standard_LRS'
   }
-  tags: {
+  tags:{
     Environment: 'Demo'
     Project: 'First Look into Azure Bicep'
   }
