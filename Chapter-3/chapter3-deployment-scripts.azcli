@@ -1,0 +1,8 @@
+# Login to Azure
+az login --use-device-code
+az account show --query name
+
+# Deploy the resource group and App-Service bicep code
+az group create -l eastus -g 'rg-chapter3'
+az deployment group create -g 'rg-chapter3' -f .\Chapter-3\app-service.bicep -c
+az appservice plan list --query [].name -o table
