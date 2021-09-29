@@ -6,3 +6,8 @@ az account show --query name
 az group create -l eastus -g 'rg-chapter3'
 az deployment group create -g 'rg-chapter3' -f .\Chapter-3\app-service.bicep -c
 az appservice plan list --query [].name -o table
+
+# Deploy the default scoped bicep code into Chapter-3 RG
+az group create -l eastus -g 'rg-chapter3'
+az deployment group create -g 'rg-chapter3' -f .\Chapter-3\default-scope.bicep -c
+az acr list --query [].name -o table
