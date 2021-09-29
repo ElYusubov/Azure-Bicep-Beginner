@@ -11,3 +11,6 @@ az appservice plan list --query [].name -o table
 az group create -l eastus -g 'rg-chapter3'
 az deployment group create -g 'rg-chapter3' -f .\Chapter-3\default-scope.bicep -c
 az acr list --query [].name -o table
+
+# Clean-up resources, without confirmation prompt
+az group delete --name 'rg-chapter3' --yes
