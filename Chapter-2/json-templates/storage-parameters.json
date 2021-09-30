@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_bicepstorage0921_name": {
-            "value": "biceplidemo929"
+        "storageAccounts_cs210032000c6118b3e_name": {
+            "value": "bcpdddno321"
         }
     }
 }
