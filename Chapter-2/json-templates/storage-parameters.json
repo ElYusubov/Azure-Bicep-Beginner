@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccounts_bicepstorage0921_name": {
-            "value": null
+            "value": "biceplidemo929"
         }
     }
 }
