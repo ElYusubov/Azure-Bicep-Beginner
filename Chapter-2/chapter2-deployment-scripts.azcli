@@ -1,0 +1,12 @@
+# Login to Azure
+az login --use-device-code
+az account show --query name
+
+# Deploy the resource group and App-Service bicep code
+az group create -l eastus -g 'rg-chapter2'
+az deployment group create -g 'rg-chapter2' -f .\Chapter-2\json-templates\storage-template.json -p .\Chapter-2\json-templates\storage-parameters.json -c
+az storage account list --query [].name -o table
+
+
+# Clean-up resources, without confirmation prompt
+az group delete --name 'rg-chapter2' --yes
