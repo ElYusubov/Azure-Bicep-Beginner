@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_bicepstorage0921_name": {
-            "defaultValue": "bcpstgnow0921",
+        "storageAccounts_bicepstgdemo_name": {
+            "defaultValue": "bicepstgdemo",
             "type": "String"
         }
     },
@@ -12,12 +12,8 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-04-01",
-            "name": "[parameters('storageAccounts_bicepstorage0921_name')]",
-            "location": "eastus",
-            "tags": {
-                "ms-resource-usage": "bicep-demo",
-                "project": "bicep"
-            },
+            "name": "[parameters('storageAccounts_bicepstgdemo_name')]",
+            "location": "eastus2",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
@@ -54,9 +50,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2021-04-01",
-            "name": "[concat(parameters('storageAccounts_bicepstorage0921_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_bicepstgdemo_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstorage0921_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstgdemo_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -86,9 +82,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices",
             "apiVersion": "2021-04-01",
-            "name": "[concat(parameters('storageAccounts_bicepstorage0921_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_bicepstgdemo_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstorage0921_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstgdemo_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -110,9 +106,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2021-04-01",
-            "name": "[concat(parameters('storageAccounts_bicepstorage0921_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_bicepstgdemo_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstorage0921_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstgdemo_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -123,9 +119,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
             "apiVersion": "2021-04-01",
-            "name": "[concat(parameters('storageAccounts_bicepstorage0921_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_bicepstgdemo_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstorage0921_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_bicepstgdemo_name'))]"
             ],
             "properties": {
                 "cors": {
