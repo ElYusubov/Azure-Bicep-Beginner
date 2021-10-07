@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "storageName": {
-        "value": "bicepstgdemo6"
+        "value": "bicepstg7"
       },
       "azureRegion": {
         "value": "eastus2"
