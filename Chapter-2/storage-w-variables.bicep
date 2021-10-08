@@ -14,3 +14,6 @@ resource bicepStorage 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   }
   kind: 'StorageV2'
 }
+
+output storageId string = bicepStorage.id
+output blobEndpoint string = bicepStorage.properties.primaryEndpoints.blob

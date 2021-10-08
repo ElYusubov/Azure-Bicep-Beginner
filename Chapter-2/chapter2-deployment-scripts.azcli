@@ -13,4 +13,4 @@ az group delete --name 'rg-chapter2' --yes
 
 # Deploy with variables and outputs
 az group create -l eastus2 -g 'bicep-chapter2'
-az deployment group create -g 'bicep-chapter2' -f .\Chapter-2\storage-w-variables.bicep -c 
+az deployment group create -g 'bicep-chapter2' -f .\Chapter-2\storage-w-variables.bicep
