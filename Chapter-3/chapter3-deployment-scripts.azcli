@@ -14,5 +14,10 @@ az acr list --query [].name -o table
 # Deploy into Subscription
 az deployment sub create -l eastus -f .\Chapter-3\multi-deployment.bicep
 
+# Preflight validation before deployment to Subscription
+az deployment sub what-if -l eastus -f .\Chapter-3\multi-deployment.bicep
+
+az deployment sub create -l eastus -f .\Chapter-3\multi-deployment.bicep -c
+
 # Clean-up resources, without confirmation prompt
 az group delete --name 'bicep-chapter3' --yes
