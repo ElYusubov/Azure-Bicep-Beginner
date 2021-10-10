@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_mycloudshell0324_name": {
-            "defaultValue": "cslinkedbicep1009",
+        "storageAccounts_samplestg1010_name": {
+            "defaultValue": "samplestg10ab",
             "type": "String"
         }
     },
@@ -12,17 +12,18 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-04-01",
-            "name": "[parameters('storageAccounts_mycloudshell0324_name')]",
-            "location": "eastus2",
-            "tags": {
-                "ms-resource-usage": "azure-cloud-shell"
-            },
+            "name": "[parameters('storageAccounts_samplestg1010_name')]",
+            "location": "eastus",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
             },
             "kind": "StorageV2",
             "properties": {
+                "allowCrossTenantReplication": true,
+                "minimumTlsVersion": "TLS1_2",
+                "allowBlobPublicAccess": true,
+                "allowSharedKeyAccess": true,
                 "networkAcls": {
                     "bypass": "AzureServices",
                     "virtualNetworkRules": [],
@@ -48,10 +49,10 @@
         },
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices",
-            "apiVersion": "2019-06-01",
-            "name": "[concat(parameters('storageAccounts_mycloudshell0324_name'), '/default')]",
+            "apiVersion": "2021-04-01",
+            "name": "[concat(parameters('storageAccounts_samplestg1010_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_mycloudshell0324_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_samplestg1010_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -60,16 +61,20 @@
             "properties": {
                 "cors": {
                     "corsRules": []
+                },
+                "shareDeleteRetentionPolicy": {
+                    "enabled": true,
+                    "days": 7
                 }
             }
         },
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-            "apiVersion": "2019-06-01",
-            "name": "[concat(parameters('storageAccounts_mycloudshell0324_name'), '/default/myfileshare')]",
+            "apiVersion": "2021-04-01",
+            "name": "[concat(parameters('storageAccounts_samplestg1010_name'), '/default/testfileshare')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccounts_mycloudshell0324_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_mycloudshell0324_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccounts_samplestg1010_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_samplestg1010_name'))]"
             ],
             "properties": {
                 "accessTier": "TransactionOptimized",
