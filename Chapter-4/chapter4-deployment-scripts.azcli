@@ -23,3 +23,6 @@ az bicep decompile --file main.json
 # remove read-only skus & "protocolSettings" & tier
  az deployment group create -g 'bicep-chapter4' -f main.bicep -c
 
+# set environment for chapter 04_03 bicep-demo app
+az group create -l eastus -g 'bicep-chapter4'
+az deployment group create -g 'bicep-chapter4' -f .\Chapter-4\bicepdemoapp-C.bicep
