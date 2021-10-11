@@ -22,3 +22,4 @@ az bicep decompile --file main.json
 # set the param storageAccounts_samplestg1010_name string = 'dmsamplst1011'
 # remove read-only skus & "protocolSettings" & tier
  az deployment group create -g 'bicep-chapter4' -f main.bicep -c
+

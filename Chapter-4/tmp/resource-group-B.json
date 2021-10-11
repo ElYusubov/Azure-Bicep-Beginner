@@ -3,15 +3,15 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_bicepdemo_app_name": {
-            "defaultValue": "bicepdemo-app2",
+            "defaultValue": "bicepdemo-app",
             "type": "String"
         },
         "serverfarms_asp_bicepdemo_name": {
-            "defaultValue": "asp-bicepdemo2",
+            "defaultValue": "asp-bicepdemo",
             "type": "String"
         },
         "storageAccounts_samplestg1010_name": {
-            "defaultValue": "samplestg1089",
+            "defaultValue": "samplestg1010",
             "type": "String"
         }
     },
@@ -73,7 +73,7 @@
                 "elasticScaleEnabled": false,
                 "maximumElasticWorkerCount": 1,
                 "isSpot": false,
-                "freeOfferExpirationTime": "2021-11-10T01:36:03.3333333",
+                "freeOfferExpirationTime": "2021-11-10T01:36:00",
                 "reserved": true,
                 "isXenon": false,
                 "hyperV": false,
@@ -125,6 +125,9 @@
                 "tier": "Standard"
             },
             "properties": {
+                "protocolSettings": {
+                    "smb": {}
+                },
                 "cors": {
                     "corsRules": []
                 },
@@ -194,7 +197,7 @@
                     "alwaysOn": false,
                     "http20Enabled": false,
                     "functionAppScaleLimit": 0,
-                    "minimumElasticInstanceCount": 0
+                    "minimumElasticInstanceCount": 1
                 },
                 "scmSiteAlsoStopped": false,
                 "clientAffinityEnabled": false,
@@ -259,6 +262,7 @@
                 "linuxFxVersion": "DOTNETCORE|3.1",
                 "requestTracingEnabled": false,
                 "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2019",
                 "httpLoggingEnabled": false,
                 "acrUseManagedIdentityCreds": false,
                 "logsDirectorySizeLimit": 35,
@@ -310,7 +314,7 @@
                 "preWarmedInstanceCount": 0,
                 "functionAppScaleLimit": 0,
                 "functionsRuntimeScaleMonitoringEnabled": false,
-                "minimumElasticInstanceCount": 0,
+                "minimumElasticInstanceCount": 1,
                 "azureStorageAccounts": {}
             }
         },
