@@ -1,3 +1,4 @@
+# https://docs.microsoft.com/en-us/answers/questions/340510/arm-templates-storageaccountsfileservices-error-34.html
 # Login to Azure
 az login --use-device-code
 az account show --query name
@@ -12,3 +13,12 @@ az deployment group create -g 'cloud-shell-storage-eastus' -f .\Chapter-4\tmp\sa
 
 # JSON fileservic API 2019-06-01 - No need to change
 # Remove unused declarations like queueservices, and "protocolSettings": {} in fileservices.
+
+# Decompile on portal
+az group export --name "your_resource_group_name" > main.json
+az bicep decompile --file main.json
+. code main.bicep
+
+# set the param storageAccounts_samplestg1010_name string = 'dmsamplst1011'
+# remove read-only skus & "protocolSettings" & tier
+ az deployment group create -g 'bicep-chapter4' -f main.bicep -c
