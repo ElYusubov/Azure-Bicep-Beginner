@@ -1,5 +1,5 @@
-resource globalazuredemostg21 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'globalazuredemostg21'
+resource azurebicepstorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'firstbicepstg21'
   location: 'eastus2'
   kind: 'StorageV2'
   sku: {
