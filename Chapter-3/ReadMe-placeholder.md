@@ -1,1 +1,0 @@
-### Describe the purpose of the exercises on Chapter 3
