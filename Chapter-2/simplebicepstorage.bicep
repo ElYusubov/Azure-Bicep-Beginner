@@ -1,3 +1,4 @@
+// simplebicepstorage.bicep
 
 resource bicepStorage 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'bicepstgdemo2'
