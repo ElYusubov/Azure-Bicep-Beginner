@@ -1,9 +1,0 @@
-az bicep --help
-
-az bicep build -f .\Chapter-1\simplestorage.bicep
-
-az bicep build -f .\Chapter-1\simplestorage.bicep --outfile .\Chapter-1\new-stg.json
-
-# Deploy the resource group for bicep code
-az group create -l eastus -g 'bicep-chapter1'
-az group delete --name 'bicep-chapter1' --yes

@@ -1,0 +1,18 @@
+# Login to Azure
+az login --use-device-code
+az account show --query name
+
+# Check bicep help
+az bicep --help
+
+# Build your first ARM JSON from a Bicep code
+az bicep build -f .\Chapter-1\simplestorage.bicep
+
+# Build your JSON with different filename
+az bicep build -f .\Chapter-1\simplestorage.bicep --outfile .\Chapter-1\new-stg.json
+
+# Create your first 'bicep-chapter1' resource group
+az group create -l eastus -g 'bicep-chapter1'
+
+# Clean all the 'bicep-chapter1' resources
+az group delete --name 'bicep-chapter1'
