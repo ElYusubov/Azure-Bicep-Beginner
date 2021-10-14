@@ -1,3 +1,5 @@
+// bicepdemoapp-refactored.bicep
+
 param sites_bicepdemo_app_name string = 'bicepdemo-app'
 param serverfarms_asp_bicepdemoapp_name string = 'asp-bicepdemoapp'
 param components_bicepdemo_app_name string = 'bicepdemo-app'

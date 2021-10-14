@@ -1,3 +1,5 @@
+// samplestorage.bicep
+
 param storageAccounts_samplestg1010_name string = 'samplestg1011'
 
 resource storageAccounts_samplestg1010_name_resource 'Microsoft.Storage/storageAccounts@2021-04-01' = {

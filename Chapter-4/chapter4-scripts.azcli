@@ -3,23 +3,29 @@
 # List all RG names
 az group list -o table
 
+# Run decompile on bicep-storage-starter.json file
 az bicep decompile -f .\Chapter-4\bicep-storage-starter.json
 
+# Create RG for 'bicep-chapter4' resources
 az group create -l eastus -g 'bicep-chapter4'
+
+# Deploy the samplestg.json into a RG 'cloud-shell-storage-eastus'
 az deployment group create -g 'cloud-shell-storage-eastus' -f .\Chapter-4\tmp\samplestg.json
 
-# JSON fileservic API 2019-06-01 - No need to change
-# Remove unused declarations like queueservices, and "protocolSettings": {} in fileservices.
 
-# Decompile on portal
+# Noet: Remove unused declarations like queueservices, and "protocolSettings": {} in fileservices.
+
+# Run a decompile on a Cloud Shell
 az group export --name "your_resource_group_name" > main.json
 az bicep decompile --file main.json
+
+# Open main.bicep on a Cloud Shell environment
 . code main.bicep
 
-# set the param storageAccounts_samplestg1010_name string = 'dmsamplst1011'
-# remove read-only skus & "protocolSettings" & tier
+# Set the param storageAccounts_samplestg1010_name string = 'dmsamplst1011'
+# Remove read-only skus & "protocolSettings" & tier
  az deployment group create -g 'bicep-chapter4' -f main.bicep -c
 
-# set environment for chapter 04_03 bicep-demo app
-az group create -l eastus -g 'bicep-chapter4'
+# Set environment for chapter 04_03 bicep-demo app
+# Deplot sanitized (clean) bicepdemoapp-C.bicep to the RG
 az deployment group create -g 'bicep-chapter4' -f .\Chapter-4\bicepdemoapp-C.bicep

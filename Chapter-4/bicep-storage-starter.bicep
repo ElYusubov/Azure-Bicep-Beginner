@@ -1,3 +1,5 @@
+// bicep-storage-starter.bicep
+
 param storageAccounts_mycloudshell0324_name string = 'mycloudshell0324'
 
 resource storageAccounts_mycloudshell0324_name_resource 'Microsoft.Storage/storageAccounts@2021-04-01' = {
