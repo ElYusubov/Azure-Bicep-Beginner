@@ -1,5 +1,8 @@
+// multi-deployment.bicep
 
 targetScope = 'subscription'
+
+@description('Azure location for all resources')
 param azureRegion string = 'eastus'
 
 resource appGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
