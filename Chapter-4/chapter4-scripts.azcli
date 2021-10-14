@@ -1,7 +1,4 @@
-# https://docs.microsoft.com/en-us/answers/questions/340510/arm-templates-storageaccountsfileservices-error-34.html
-# Login to Azure
-az login --use-device-code
-az account show --query name
+# Check the chapter-1 scripts for Login into Azure
 
 # List all RG names
 az group list -o table
