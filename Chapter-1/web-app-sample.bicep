@@ -1,3 +1,6 @@
+// web-app-sample.bicep
+
+@description('Location for all resources')
 param azureRegion string = resourceGroup().location
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
