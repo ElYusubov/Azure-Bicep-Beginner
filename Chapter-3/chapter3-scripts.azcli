@@ -1,0 +1,28 @@
+# Check the chapter-1 scripts for Login into Azure
+
+# Create a chapter resource group 'bicep-chapter3'
+az group create -l eastus -g 'bicep-chapter3'
+
+# Deploy app-service.bicep into the RG
+az deployment group create -g 'bicep-chapter3' -f .\Chapter-3\app-service.bicep
+
+# List all app services in your subscription
+az appservice plan list --query [].name -o table
+
+# Deploy the container-registry.bicep with a default (RG) scope
+az deployment group create -g 'bicep-chapter3' -f .\Chapter-3\container-registry.bicep
+
+# List all the azure container registry resources
+az acr list --query [].name -o table
+
+# Deploy a multi-deployment.bicep with a subscription target scope
+az deployment sub create -l eastus -f .\Chapter-3\multi-deployment.bicep
+
+# Use what-if (a Preflight validation check)
+az deployment sub what-if -l eastus -f .\Chapter-3\multi-deployment.bicep
+
+# Use -c (a Preflight validation check with a prompt to continue the deployment)
+az deployment sub create -l eastus -f .\Chapter-3\multi-deployment.bicep -c
+
+# Clean-up resources without confirmation prompt
+az group delete --name 'bicep-chapter3' --yes
