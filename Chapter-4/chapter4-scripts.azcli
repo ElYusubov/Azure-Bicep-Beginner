@@ -13,7 +13,19 @@ az group create -l eastus -g 'bicep-chapter4'
 az deployment group create -g 'cloud-shell-storage-eastus' -f .\Chapter-4\tmp\samplestg.json
 
 
-# Noet: Remove unused declarations like queueservices, and "protocolSettings": {} in fileservices.
+# Note: Remove unused declarations like queueservices, and "protocolSettings": {} in fileservices.
+
+# Create the initial chapter-4 resource group
+az group create -l eastus -g 'bicep-chapter4'
+
+# Deploy initial chapter-4 environment of three resources
+az deployment group create -g 'bicep-chapter4' -f .\Chapter-4\tmp\resource-group-E.json
+
+# Clean-up resources without confirmation prompt
+az group delete --name 'bicep-chapter4' --yes
+
+# Deployment with five resources
+az deployment group create -g 'bicep-chapter4' -f .\Chapter-4\bicepdemoapp-refactored.bicep 
 
 # Run a decompile on a Cloud Shell
 az group export --name "your_resource_group_name" > main.json
